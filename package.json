@@ -1,0 +1,33 @@
+{
+  "name": "@wdio/aws-device-farm-service",
+  "version": "0.1.0",
+  "description": "AWS Device Farm service for WebdriverIO.",
+  "main": "index.js",
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kapoorlakshya/wdio-aws-device-farm-service.git"
+  },
+  "keywords": [
+    "wdio-plugin",
+    "wdio-service",
+    "aws device farm"
+  ],
+  "author": "Lakshya Kapoor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kapoorlakshya/wdio-aws-device-farm-service/issues"
+  },
+  "homepage": "https://github.com/kapoorlakshya/wdio-aws-device-farm-service#readme",
+  "peerDependencies": {
+    "@wdio/cli": "^5.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
