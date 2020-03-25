@@ -29,5 +29,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.646.0"
   }
 }
