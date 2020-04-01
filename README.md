@@ -2,13 +2,13 @@
 
 A WebdriverIO v5 service to execute browser tests on AWS Device Farm.
 
-## Requirements
+### Requirements
 
 WebdriverIO version higher than v5.22.5 is required for [this](https://github.com/webdriverio/webdriverio/pull/5145) change to be available.
 
-## Installation
+### Installation
 
-Until this package is published to NPM, you'll have to:
+Until this package is published to [npmjs.com](https://www.npmjs.com/), you'll have to:
 
 1. Clone the repo into your `node_modules/@wdio` folder:
 
@@ -30,7 +30,7 @@ The service should now be listed as a scoped package under `@wdio` in the `packa
 }
 ```
 
-## Usage
+### Usage
 
 Update your config file with the following information:
 
@@ -48,9 +48,20 @@ exports.config = {
         expiresInSeconds: 300 // 5 minutes
       }
     ]
+  ],
+  capabilities: [
+    {
+      browserName: "chrome",
+      browserVersion: "latest",
+      platform: "windows"
+    }
   ]
   // ...
 };
 ```
 
-Now simply execute your test(s) and you should see activity on AWS Device Farm.
+Now simply execute your test(s) and you should see browser sessions launching on AWS Device Farm.
+
+### Supported Capabilities
+
+[https://docs.aws.amazon.com/devicefarm/latest/testgrid/techref-support.html](https://docs.aws.amazon.com/devicefarm/latest/testgrid/techref-support.html)
