@@ -5,7 +5,7 @@
   "author": "Lakshya Kapoor <kapoorlakshya@gmail.com>",
   "homepage": "https://github.com/kapoorlakshya/wdio-aws-device-farm-service",
   "license": "MIT",
-  "main": "./src/index",
+  "main": "./build/index",
   "engines": {
     "node": ">= 8.11.0"
   },
@@ -38,5 +38,19 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-function-bind": "^7.8.3",
+    "@babel/plugin-proposal-optional-catch-binding": "^7.8.3",
+    "@babel/plugin-syntax-export-default-from": "^7.8.3",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/register": "^7.9.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-source-map-support": "^2.1.1"
   }
 }
