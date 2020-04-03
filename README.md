@@ -11,9 +11,10 @@ WebdriverIO version higher than v5.22.5 is required for [this](https://github.co
 Until this package is published to [npmjs.com](https://www.npmjs.com/), you'll have to:
 
 1. Clone the repo locally.
-2. `cd` into the cloned repo and run `npm link`.
-3. Navigate to your project root and run `npm link @wdio/aws-device-farm-service`
-4. Add the following dependencies to your `package.json`:
+2. `cd` into the repo and build the package: `npm run compile`
+3. Run `npm link` to create a symlink to this repo.
+4. Navigate to your project root and run `npm link @wdio/aws-device-farm-service` to complete linking.
+5. Add the following dependencies to your `package.json`:
 
 ```js
 "devDependencies": {
