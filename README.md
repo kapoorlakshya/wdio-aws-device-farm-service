@@ -10,23 +10,14 @@ WebdriverIO version higher than v5.22.5 is required for [this](https://github.co
 
 Until this package is published to [npmjs.com](https://www.npmjs.com/), you'll have to:
 
-1. Clone the repo into your `node_modules/@wdio` folder:
-
-```bash
-$ git clone https://github.com/kapoorlakshya/wdio-aws-device-farm-service.git node_modules/@wdio/aws-device-farm
-```
-
-2. Install as a development dependency from the local repo:
-
-```bash
-$ npm install --save-dev node_modules/@wdio/aws-device-farm-service
-```
-
-The service should now be listed as a scoped package under `@wdio` in the `package.json`:
+1. Clone the repo locally.
+2. `cd` into the cloned repo and run `npm link`.
+3. Navigate to your project root and run `npm link @wdio/aws-device-farm-service`
+4. Add the following dependencies to your `package.json`:
 
 ```js
 "devDependencies": {
-  "@wdio/aws-device-farm-service": file: "./node_modules/@wdio/aws-device-farm-service"
+  "@wdio/aws-device-farm-service": "latest"
 }
 ```
 
