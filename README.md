@@ -1,6 +1,8 @@
-# wdio-aws-device-farm-service (BETA)
+# wdio-aws-device-farm-service (ALPHA)
 
 A WebdriverIO v5 service to execute browser tests on AWS Device Farm.
+
+**Note**: This project is still under development and needs to be fully tested.
 
 ### Requirements
 
@@ -37,17 +39,17 @@ exports.config = {
         accessKeyId: process.env.AWS_ACCESS_KEY_ID,
         secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
         projectArn: process.env.AWS_DF_ARN,
-        expiresInSeconds: 300 // 5 minutes
-      }
-    ]
+        expiresInSeconds: 300, // 5 minutes
+      },
+    ],
   ],
   capabilities: [
     {
       browserName: "chrome",
       browserVersion: "latest",
-      platform: "windows"
-    }
-  ]
+      platform: "windows",
+    },
+  ],
   // ...
 };
 ```
