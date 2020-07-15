@@ -1,32 +1,31 @@
-# wdio-aws-device-farm-service (ALPHA)
+# wdio-aws-device-farm-service (BETA)
 
 A WebdriverIO v5 service to execute browser tests on AWS Device Farm.
 
-**Note**: This project is still under development and needs to be fully tested.
-
-### Requirements
+## Requirements
 
 WebdriverIO v5.23+ is required for [this](https://github.com/webdriverio/webdriverio/pull/5145) change to be available.
 
 Support for v6 is coming soon!
 
-### Installation
+## Installation
 
 Until this package is published to [npmjs.com](https://www.npmjs.com/), you'll have to:
 
-1. Clone the repo locally.
-2. `cd` into the repo and build the package: `npm run compile`
-3. Run `npm link` to create a symlink to this repo.
-4. Navigate to your project root and run `npm link @wdio/aws-device-farm-service` to complete linking.
-5. Add the following dependencies to your `package.json`:
+1. Clone the repo locally and `cd` into
+2. Install dependencies: `npm install`
+3. Build package: `npm run compile`
+4. Run `npm link` to create a symlink to the repo
+5. Navigate to your project root and run `npm link wdio-aws-device-farm-service` to complete linking
+6. Add the following dependencies to your `package.json`:
 
-```js
-"devDependencies": {
-  "@wdio/aws-device-farm-service": "latest"
+```json
+"dependencies": {
+  "wdio-aws-device-farm-service": "latest"
 }
 ```
 
-### Usage
+## Usage
 
 Update your config file with the following information:
 
@@ -35,7 +34,7 @@ exports.config = {
   // ...
   services: [
     [
-      "aws-device-farm",
+      "wdio-aws-device-farm",
       {
         region: "us-west-2", // Only one available as of April 2020
         accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -56,8 +55,8 @@ exports.config = {
 };
 ```
 
-Now simply execute your test(s) and you should see browser sessions launching on AWS Device Farm.
+Now simply execute your test(s), and you should see browser sessions launching on AWS Device Farm.
 
-### Supported Capabilities
+## Supported Capabilities
 
 [https://docs.aws.amazon.com/devicefarm/latest/testgrid/techref-support.html](https://docs.aws.amazon.com/devicefarm/latest/testgrid/techref-support.html)
