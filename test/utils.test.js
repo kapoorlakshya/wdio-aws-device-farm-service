@@ -36,4 +36,28 @@ describe('getTestGridInfo', () => {
         expect(data.port).toBe(443)
         expect(data.protocol).toBe('https')
     })
+
+    test('should throw an error if test grid path is blank', async () => {
+        // Test AWS config
+        const awsParams = {
+            // Only one available as of April 2020
+            accessKeyId: 'test-access-key',
+            expiresInSeconds: 300,
+            projectArn: 'test-project-arn',
+            region: 'us-west-2',
+            secretAccessKey: 'test-secret-key', // 5 minutes
+        }
+
+        // Mock AWS call
+        const createTestGridUrlPromise = jest.fn().mockReturnValue({
+            promise: jest.fn().mockResolvedValue({
+                url: 'testgrid-devicefarm.us-west-2.amazonaws.com'
+            })
+        })
+        AWS.DeviceFarm = jest.fn().mockImplementation(() => ({
+            createTestGridUrl: createTestGridUrlPromise
+        }))
+
+        await expect(utils.getTestGridInfo(awsParams)).rejects.toThrowError('Failed to retrieve test grid path. Reason: AWS returned')
+    })
 })
