@@ -24,8 +24,7 @@
     "compile": "./node_modules/.bin/babel src --out-dir build",
     "lint": "./node_modules/.bin/eslint . --ext js,json",
     "lint:fix": "./node_modules/.bin/eslint --fix . --ext js,json",
-    "test": "run-s test:*",
-    "test:unit": "./node_modules/.bin/jest",
+    "test": "./node_modules/.bin/jest",
     "watch": "./node_modules/.bin/babel src --watch --out-dir build"
   },
   "jest": {
