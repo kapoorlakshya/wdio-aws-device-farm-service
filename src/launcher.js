@@ -1,9 +1,9 @@
-import getTestGridInfo from './utils'
+import utils from './utils'
 
 export default class AwsDeviceFarmLauncher {
-  async onPrepare(config, capabilities) {
+  async onPrepare(config) {
     const awsParams = config.services[0][1]
-    let testGridInfo = await getTestGridInfo(awsParams)
+    let testGridInfo = await utils.getTestGridInfo(awsParams)
     config.hostname = testGridInfo.hostname
     config.path = testGridInfo.path
     config.port = testGridInfo.port
