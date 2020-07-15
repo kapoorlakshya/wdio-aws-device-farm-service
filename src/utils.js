@@ -13,7 +13,7 @@ async function getTestGridInfo(awsParams) {
         }
 
         const deviceFarm = new AWS.DeviceFarm(awsParams)
-        const params = {expiresInSeconds: awsParams.expiresInSeconds, projectArn: awsParams.projectArn}
+        const params = { expiresInSeconds: awsParams.expiresInSeconds, projectArn: awsParams.projectArn }
         const data = await deviceFarm.createTestGridUrl(params).promise()
         testGrid.path = data.url.match(`${testGrid.hostname}(.*)`)[1] // Extract path from URL
         log.debug(`AWS DeviceFarm Test Grid: ${testGrid}`)

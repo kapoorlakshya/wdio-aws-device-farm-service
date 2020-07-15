@@ -1,5 +1,5 @@
 import AwsDeviceFarmLauncher from '../src/launcher'
-import utils from "../src/utils";
+import utils from '../src/utils'
 
 describe('AwsDeviceFarmLauncher', () => {
     describe('onPrepare', () => {
@@ -8,13 +8,14 @@ describe('AwsDeviceFarmLauncher', () => {
             const config = {
                 services: [
                     [
-                        "aws-device-farm",
+                        'aws-device-farm',
                         {
-                            region: "us-west-2", // Only one available as of April 2020
+                            // Only one available as of April 2020
                             accessKeyId: 'test-access-key',
-                            secretAccessKey: 'test-secret-key',
+                            expiresInSeconds: 300,
                             projectArn: 'test-project-arn',
-                            expiresInSeconds: 300, // 5 minutes
+                            region: 'us-west-2',
+                            secretAccessKey: 'test-secret-key', // 5 minutes
                         },
                     ],
                 ]
@@ -22,12 +23,12 @@ describe('AwsDeviceFarmLauncher', () => {
 
             // Mock getTestGridInfo
             utils.getTestGridInfo = jest.fn().mockReturnValue(
-                    {
-                        hostname: 'test-grid-host',
-                        path: '/test-grid-path',
-                        port: '1234',
-                        protocol: 'https'
-                    }
+                {
+                    hostname: 'test-grid-host',
+                    path: '/test-grid-path',
+                    port: '1234',
+                    protocol: 'https'
+                }
             )
 
             let launcher = new AwsDeviceFarmLauncher()

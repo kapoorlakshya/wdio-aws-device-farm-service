@@ -1,21 +1,21 @@
 module.exports = {
+    comments: false,
+    env: {
+        development: {
+            plugins: ['source-map-support'],
+            sourceMaps: 'inline'
+        }
+    },
+    plugins: [
+        '@babel/plugin-proposal-function-bind',
+        '@babel/plugin-proposal-class-properties',
+        '@babel/plugin-proposal-optional-catch-binding'
+    ],
     presets: [
         ['@babel/preset-env', {
             targets: {
                 node: 8
             }
         }]
-    ],
-    plugins: [
-        '@babel/plugin-proposal-function-bind',
-        '@babel/plugin-proposal-class-properties',
-        '@babel/plugin-proposal-optional-catch-binding'
-    ],
-    env: {
-        development: {
-            sourceMaps: 'inline',
-            plugins: ['source-map-support']
-        }
-    },
-    comments: false
+    ]
 }
