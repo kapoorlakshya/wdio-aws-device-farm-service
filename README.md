@@ -6,7 +6,7 @@ A WebdriverIO v5 service to execute browser tests on AWS Device Farm.
 
 WebdriverIO v5.23+ is required for [this](https://github.com/webdriverio/webdriverio/pull/5145) change to be available.
 
-Support for v6 is coming soon!
+Support for v6 is coming [soon](https://github.com/kapoorlakshya/wdio-aws-device-farm-service/issues/1)!
 
 ## Installation
 
