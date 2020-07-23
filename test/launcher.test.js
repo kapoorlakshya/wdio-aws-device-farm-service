@@ -10,12 +10,11 @@ describe('AwsDeviceFarmLauncher', () => {
                     [
                         'aws-device-farm',
                         {
-                            // Only one available as of April 2020
                             accessKeyId: 'test-access-key',
-                            expiresInSeconds: 300,
+                            expiresInSeconds: 300, // 5 minutes
                             projectArn: 'test-project-arn',
                             region: 'us-west-2',
-                            secretAccessKey: 'test-secret-key', // 5 minutes
+                            secretAccessKey: 'test-secret-key',
                         },
                     ],
                 ]
