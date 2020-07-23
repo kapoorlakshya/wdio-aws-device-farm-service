@@ -67,7 +67,8 @@
     "eslint-plugin-jest": "^23.18.0",
     "eslint-plugin-json-files": "^0.8.1",
     "eslint-plugin-sort-keys-fix": "^1.1.1",
-    "jest": "^26.1.0"
+    "jest": "^26.1.0",
+    "lodash": ">=4.17.19"
   },
   "engines": {
     "node": ">= 8.11.0"
