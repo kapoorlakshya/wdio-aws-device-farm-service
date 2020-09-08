@@ -1,4 +1,4 @@
-import AwsDeviceFarmLauncher from './launcher'
+import AwsDeviceFarmLauncher from './launcher';
 
-export default class AwsDeviceFarmService { }
-export const launcher = AwsDeviceFarmLauncher
+export default class AwsDeviceFarmService {}
+export const launcher = AwsDeviceFarmLauncher;

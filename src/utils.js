@@ -1,48 +1,53 @@
-import AWS from 'aws-sdk'
-import logger from '@wdio/logger'
+import AWS from 'aws-sdk';
+import logger from '@wdio/logger';
 
-const log = logger('@wdio/aws-device-farm-service')
+const log = logger('@wdio/aws-device-farm-service');
 
-async function getTestGridInfo(awsParams) {
-    let testGridInfo = {
-        hostname: `testgrid-devicefarm.${awsParams.region}.amazonaws.com`,
-        path: '',
-        port: 443,
-        protocol: 'https'
-    }
+// returns test grid connection info
+async function createTestGrid(awsParams) {
+  // Create test grid
+  let testGridUrl;
+  try {
+    const deviceFarm = new AWS.DeviceFarm(awsParams);
+    const params = deviceFarmParams(awsParams); // Device Farm specific
+    testGridUrl = await deviceFarm.createTestGridUrl(params).promise();
+  } catch (error) {
+    throw new Error(`Failed to create test grid. Reason: ${error}`);
+  }
 
-    // Create test grid
-    let data
-    try {
-        const deviceFarm = new AWS.DeviceFarm(awsParams)
-        const params = {
-            expiresInSeconds: awsParams.expiresInSeconds,
-            projectArn: awsParams.projectArn
-        }
-        data = await deviceFarm.createTestGridUrl(params).promise()
-    } catch (error) {
-        // TODO: Test this
-        throw new Error(`Failed to create test grid. Reason: ${error}`)
-    }
+  // Retrieve and return webdriver path
+  const testGridInfo = extractTestGridInfo(testGridUrl);
+  log.debug(`Test Grid: ${JSON.stringify(testGridInfo)}`);
+  return testGridInfo;
+}
 
-    // Retrieve webdriver path
-    try {
-        testGridInfo.path = data.url.match(`${testGridInfo.hostname}(.*)`)[1] // Extract path from URL
-    } catch (error) {
-        // TODO: Test this
-        throw new Error(`Failed to retrieve test grid path. Reason: ${error}`)
-    }
-    log.debug(`Test Grid: ${JSON.stringify(testGridInfo)}`)
+// Returns Device Farm specific params from given AWS params
+function deviceFarmParams(params) {
+  return {
+    projectArn: params.projectArn,
+    expiresInSeconds: params.expiresInSeconds,
+  };
+}
 
-    if (testGridInfo.path === '') {
-        throw new Error('Failed to retrieve test grid path. Reason: AWS returned \'\'')
-    }
+// Extracts connection info from given #createTestGridUrl response
+function extractTestGridInfo(testGridUrl) {
+  const info = {
+    hostname: '',
+    path: '',
+    port: 443,
+    protocol: 'https',
+  };
 
-    return testGridInfo
+  // Extract webdriver path from URL
+  info.hostname = testGridUrl.url.match('(.*)amazonaws.com')[0]; // Extract base URL
+  info.path = testGridUrl.url.match('amazonaws.com(.*)')[1]; // Extract path
+  if (info.path === '') throw new Error(`No path found in URL - '${testGridUrl.url}'`);
+
+  return info;
 }
 
 const utils = {
-    getTestGridInfo
-}
+  createTestGrid,
+};
 
-export default utils
+export default utils;

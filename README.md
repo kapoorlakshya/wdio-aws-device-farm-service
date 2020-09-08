@@ -34,9 +34,9 @@ exports.config = {
   // ...
   services: [
     [
-      "wdio-aws-device-farm",
+      'wdio-aws-device-farm',
       {
-        region: "us-west-2", // Only one available as of April 2020
+        region: 'us-west-2', // Only one available as of April 2020
         accessKeyId: process.env.AWS_ACCESS_KEY_ID,
         secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
         projectArn: process.env.AWS_DF_ARN,
@@ -46,9 +46,9 @@ exports.config = {
   ],
   capabilities: [
     {
-      browserName: "chrome",
-      browserVersion: "latest",
-      platform: "windows",
+      browserName: 'chrome',
+      browserVersion: 'latest',
+      platform: 'windows',
     },
   ],
   // ...
